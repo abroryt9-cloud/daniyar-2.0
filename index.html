@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>🚀 DANIYAR 2.0 — $7M к 23</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- ========== КОСМИЧЕСКИЙ ФОН ========== -->
+    <div class="space">
+        <div class="stars"></div>
+        <div class="twinkling"></div>
+        <div class="nebula"></div>
+    </div>
+
+    <!-- ========== ПАРАЛЛАКС ЗВЁЗДЫ ========== -->
+    <div id="parallax-stars"></div>
+
+    <div class="container">
+        <!-- ========== ХЕДЕР С ЦЕЛЬЮ ========== -->
+        <header class="glass-morph">
+            <div class="goal-flare">🎯 23 ГОДА • $7,000,000</div>
+            <h1 class="glitch" data-text="DANIYAR 2.0">DANIYAR 2.0</h1>
+            <div class="orbit-container">
+                <div class="orbit-text">
+                    <span id="currentAge">15</span> лет • 
+                    <span id="yearsUntilGoal">8</span> лет до цели
+                </div>
+            </div>
+        </header>
+
+        <!-- ========== МЕГА-ПРОГРЕСС БАР К МИЛЛИАРДУ ========== -->
+        <div class="wealth-section">
+            <div class="wealth-header">
+                <h2><i class="fas fa-crown"></i> СОСТОЯНИЕ</h2>
+                <div class="wealth-toggle">
+                    <button class="wealth-btn active" data-view="usd">$ USD</button>
+                    <button class="wealth-btn" data-view="rub">₽ RUB</button>
+                </div>
+            </div>
+
+            <div class="wealth-card glass-deep">
+                <div class="wealth-current">
+                    <span class="wealth-label">СЕЙЧАС</span>
+                    <span class="wealth-amount" id="currentWealth">$0</span>
+                    <button class="edit-wealth-btn" id="editWealthBtn">
+                        <i class="fas fa-pencil-alt"></i>
+                    </button>
+                </div>
+                
+                <div class="wealth-goal">
+                    <span class="wealth-label">ЦЕЛЬ</span>
+                    <span class="wealth-amount goal">$7,000,000</span>
+                </div>
+
+                <div class="wealth-progress-container">
+                    <div class="wealth-progress-track">
+                        <div class="wealth-progress-fill" id="wealthProgressFill" style="width: 0%;">
+                            <div class="progress-flare"></div>
+                        </div>
+                    </div>
+                    <div class="wealth-stats">
+                        <span id="wealthPercent">0</span>% достигнуто
+                        <span class="wealth-remaining">осталось $<span id="remainingWealth">7,000,000</span></span>
+                    </div>
+                </div>
+
+                <!-- БЫСТРЫЙ ВВОД ДОХОДА -->
+                <div class="quick-income">
+                    <input type="number" id="incomeInput" placeholder="Сумма" step="100">
+                    <select id="incomeType">
+                        <option value="add">➕ Добавить</option>
+                        <option value="subtract">➖ Вычесть</option>
+                    </select>
+                    <button id="addIncomeBtn" class="income-btn">
+                        <i class="fas fa-arrow-up"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== ГОДОВАЯ ЦЕЛЕВАЯ ПЛАНКА ========== -->
+        <div class="milestones-section">
+            <h3><i class="fas fa-flag-checkered"></i> ГОДОВЫЕ ЦЕЛИ</h3>
+            <div class="milestones-grid" id="milestonesGrid">
+                <!-- JS заполнит -->
+            </div>
+        </div>
+
+        <!-- ========== ОСНОВНЫЕ ПОКАЗАТЕЛИ ========== -->
+        <div class="stats-nebula">
+            <div class="stat-card glass">
+                <div class="stat-icon">🔥</div>
+                <div class="stat-info">
+                    <span class="stat-label">СТРИК</span>
+                    <span class="stat-value" id="streakCount">0</span>
+                    <span class="stat-unit">дней</span>
+                </div>
+            </div>
+            <div class="stat-card glass">
+                <div class="stat-icon">✅</div>
+                <div class="stat-info">
+                    <span class="stat-label">СЕГОДНЯ</span>
+                    <span class="stat-value" id="todayCompleted">0</span>
+                    <span class="stat-unit">/<span id="todayTotal">0</span></span>
+                </div>
+            </div>
+            <div class="stat-card glass">
+                <div class="stat-icon">⏳</div>
+                <div class="stat-info">
+                    <span class="stat-label">ДО 23</span>
+                    <span class="stat-value" id="daysUntil23">2920</span>
+                    <span class="stat-unit">дней</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== ИСЛАМСКИЙ БЛОК ========== -->
+        <div class="islamic-section">
+            <div class="section-header">
+                <h2><i class="fas fa-mosque"></i> НАМАЗ & БАРАКА</h2>
+                <div class="ramadan-counter" id="ramadanCountdown"></div>
+            </div>
+            <div class="prayer-grid" id="prayerGrid"></div>
+        </div>
+
+        <!-- ========== КОЛЛЕДЖ 2512/1 ========== -->
+        <div class="college-section">
+            <div class="section-header">
+                <h2><i class="fas fa-graduation-cap"></i> КОЛЛЕДЖ 2512/1</h2>
+                <div class="week-selector">
+                    <button class="week-btn active" data-week="current">Текущая</button>
+                    <button class="week-btn" data-week="next">Следующая</button>
+                </div>
+            </div>
+            <div class="schedule-cosmic" id="collegeSchedule"></div>
+        </div>
+
+        <!-- ========== ТРЕЙДИНГ ========== -->
+        <div class="trading-section">
+            <div class="section-header">
+                <h2><i class="fas fa-chart-line"></i> ТРЕЙДИНГ • $7M</h2>
+                <div class="level-badge" id="tradingLevel">📊 JUNIOR</div>
+            </div>
+            <div class="trading-dashboard" id="tradingDashboard"></div>
+        </div>
+
+        <!-- ========== БРЕНД & СОЦСЕТИ ========== -->
+        <div class="brand-section">
+            <div class="section-header">
+                <h2><i class="fas fa-star"></i> ТВОЙ БРЕНД</h2>
+                <div class="brand-growth" id="brandGrowth">+0%</div>
+            </div>
+            <div class="brand-cosmic" id="brandDashboard"></div>
+        </div>
+
+        <!-- ========== ТРЕНИРОВКИ ========== -->
+        <div class="fitness-section">
+            <div class="section-header">
+                <h2><i class="fas fa-dumbbell"></i> ТРЕНИРОВКИ</h2>
+                <span class="streak-flame" id="fitnessStreak">🔥 0</span>
+            </div>
+            <div class="fitness-grid" id="fitnessGrid"></div>
+        </div>
+
+        <!-- ========== КОСМИЧЕСКАЯ НАВИГАЦИЯ ========== -->
+        <div class="navigation-orbit">
+            <button class="nav-planet" data-section="wealth">
+                <span class="planet-icon">💰</span>
+                <span class="planet-label">$7M</span>
+            </button>
+            <button class="nav-planet" data-section="islamic">
+                <span class="planet-icon">🕌</span>
+                <span class="planet-label">Намаз</span>
+            </button>
+            <button class="nav-planet" data-section="college">
+                <span class="planet-icon">📚</span>
+                <span class="planet-label">Колледж</span>
+            </button>
+            <button class="nav-planet" data-section="trading">
+                <span class="planet-icon">📈</span>
+                <span class="planet-label">Трейдинг</span>
+            </button>
+            <button class="nav-planet" data-section="brand">
+                <span class="planet-icon">💼</span>
+                <span class="planet-label">Бренд</span>
+            </button>
+        </div>
+
+        <!-- ========== СБРОС ДНЯ ========== -->
+        <div class="reset-orbit">
+            <button id="completeDayBtn" class="reset-btn cosmic">
+                <i class="fas fa-rocket"></i> ЗАВЕРШИТЬ ДЕНЬ
+            </button>
+        </div>
+    </div>
+
+    <!-- ========== МОДАЛКА РЕДАКТИРОВАНИЯ СОСТОЯНИЯ ========== -->
+    <div id="wealthModal" class="modal">
+        <div class="modal-content glass-deep">
+            <span class="close">&times;</span>
+            <h2><i class="fas fa-coins"></i> Редактировать состояние</h2>
+            <input type="number" id="editWealthInput" placeholder="Текущее состояние $" step="1000">
+            <button id="saveWealthBtn" class="cosmic-btn">СОХРАНИТЬ</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+  </html>
